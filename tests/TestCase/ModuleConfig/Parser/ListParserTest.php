@@ -65,20 +65,17 @@ class ListParserTest extends TestCase
         $this->assertTrue(in_array('bar.bar_two', array_keys($resultArray['items'])));
     }
 
-    public function testTrasiction() : void
+    public function testTransaction() : void
     {
-        $file = $this->dataDir . DS . 'Foo' . DS . 'lists' . DS . 'local_genders.json';
-        $result = $this->parser->parse($file, ['filter' => true, 'flatten' => true, 'transition' => 'baz']);
+        $file = $this->dataDir . DS . 'Foo' . DS . 'lists' . DS . 'transaction.json';
 
+        $result = $this->parser->parse($file, ['filter' => true, 'flatten' => true, 'transaction' => '']);
         $resultArray = Convert::objectToArray($result);
+        $this->assertEquals($resultArray['transaction']['initial'], key($resultArray['items']));
+        $this->assertEquals($resultArray['transaction']['initial'], key($resultArray['items']));
 
-        $this->assertEquals(2, count($resultArray['items']));
-        $this->assertTrue(in_array('baz', array_keys($resultArray['items'])));
-        $this->assertTrue(in_array('f', array_keys($resultArray['items'])));
-
-        $result = $this->parser->parse($file, ['filter' => true, 'flatten' => true, 'transition' => 'f']);
+        $result = $this->parser->parse($file, ['filter' => true, 'flatten' => true, 'transaction' => 'in_progress']);
         $resultArray = Convert::objectToArray($result);
-
-        $this->assertEquals(7, count($resultArray['items']));
+        $this->assertEquals(4, count($resultArray['items']));
     }
 }

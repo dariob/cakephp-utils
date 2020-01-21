@@ -48,8 +48,8 @@ class ListParser extends Parser
 
         $config = $this->getConfig();
 
-        if (isset($config['transition']) && $config['transition']) {
-            $data['items'] = $this->transition($data['items'], $config['transition']);
+        if (isset($data['transaction'])) {
+            $data['items'] = $this->transaction($data, $config['transaction']);
         }
 
         $data['items'] = $this->normalize($data['items']);
@@ -151,18 +151,25 @@ class ListParser extends Parser
      * @param  string $value Current list value
      * @return mixed[] filter array
      */
-    protected function transition(array $data, string $value) : array
+    protected function transaction(array $data, string $value) : array
     {
-        $list = (Hash::extract($data, '{n}[value=' . $value . '].transitions.{*}'));
+        if (empty($value)) {
+            $initial = $data['transaction']['initial'];
 
-        if (empty($list)) {
-            return $data;
+            return (array)Hash::extract($data['items'], '{n}[value=' . $initial . ']');
         }
 
-        $list[] = $value;
+        $list = [];
+        $to = (array)Hash::extract($data['transaction']['items'], '{n}[from=' . $value . '].to');
 
-        return $result = array_filter($data, function ($v) use ($list) {
-            return in_array($v['value'], (array)$list);
-        });
+        array_unshift($to, $value);
+        foreach ($to as $key) {
+            if (empty($key)) {
+                continue;
+            }
+            $list[] = (array)Hash::extract($data['items'], '{n}[value=' . $key . ']')[0];
+        }
+
+        return $list;
     }
 }

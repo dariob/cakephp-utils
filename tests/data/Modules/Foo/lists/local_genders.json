@@ -41,14 +41,12 @@
             "value": "baz",
             "label": "Baz",
             "inactive": false,
-            "transitions" : ["f"],
             "children": []
         },
         {
             "value": "noway",
             "label": "No way",
             "inactive": false,
-            "transitions" : [""],
             "children": []
         }
     ]
