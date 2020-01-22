@@ -84,7 +84,7 @@ class ListParser extends Parser
         foreach ($data as $item) {
             $value = [
                 'label' => (string)$item['label'],
-                'inactive' => (bool)$item['inactive']
+                'inactive' => (bool)$item['inactive'],
             ];
 
             if (! empty($item['children'])) {
@@ -131,7 +131,7 @@ class ListParser extends Parser
         foreach ($data as $key => $value) {
             $item = [
                 'label' => $value['label'],
-                'inactive' => $value['inactive']
+                'inactive' => $value['inactive'],
             ];
 
             $result[$key] = $item;
