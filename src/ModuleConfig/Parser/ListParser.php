@@ -151,7 +151,7 @@ class ListParser extends Parser
      * @param  string $value Current list value
      * @return mixed[] filter array
      */
-    protected function transaction(array $data, string $value) : array
+    protected function transaction(array $data, string $value): array
     {
         if (empty($value)) {
             $initial = $data['transaction']['initial'];

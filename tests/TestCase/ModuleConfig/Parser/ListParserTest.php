@@ -65,7 +65,7 @@ class ListParserTest extends TestCase
         $this->assertTrue(in_array('bar.bar_two', array_keys($resultArray['items'])));
     }
 
-    public function testTransaction() : void
+    public function testTransaction(): void
     {
         $file = $this->dataDir . DS . 'Foo' . DS . 'lists' . DS . 'transaction.json';
 
