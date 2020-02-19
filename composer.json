@@ -1,5 +1,5 @@
 {
-    "name": "qobo/cakephp-utils",
+    "name": "dariob/cakephp-utils",
     "description": "CakePHP utilities",
     "keywords": ["cakephp", "utils"],
     "type": "cakephp-plugin",
