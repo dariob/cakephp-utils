@@ -31,30 +31,7 @@
         }
     ],
     "require": {
-        "admad/cakephp-jwt-auth": "^2.0",
-        "admad/cakephp-sequence": "^2.2",
-        "alt3/cakephp-swagger": "^2.0",
-        "arvenil/ninja-mutex": "^0.6",
-        "burzum/cakephp-file-storage": "2.0",
-        "burzum/cakephp-imagine-plugin": "dev-master#d21baf7378271d536982c8c0867fab3dcfa24cc8",
-        "cakedc/users": "^8.0",
-        "cakephp/cakephp": "3.*",
-        "cakephp/migrations": "^1.7",
-        "friendsofcake/crud": "^5.4",
-        "fzaninotto/faker": "^1.0",
-        "josegonzalez/dotenv": "^3.2",
-        "justinrainbow/json-schema": "^5.0",
-        "league/csv": "^8.1",
-        "lorenzo/audit-stash": "^2.0",
-        "maiconpinto/cakephp-adminlte-theme": "^1.0",
-        "mobiledetect/mobiledetectlib": "2.*",
-        "muffin/trash": "^2.1",
-        "myclabs/php-enum": "^1.5",
-        "pyrech/composer-changelogs": "^1.4",
-        "riesenia/cakephp-duplicatable": "^3.0",
-        "rlanvin/php-rrule": "^1.6",
-        "seld/jsonlint": "^1.7",
-        "webmozart/assert": "^1.4"
+      
     },
     "require-dev": {
         "qobo/cakephp-composer-dev": "^v1.0"
